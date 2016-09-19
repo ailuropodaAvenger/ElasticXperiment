@@ -141,7 +141,7 @@ ls -l
 chown -R root:root elasticsearch/
 ls -l elasticsearch/
 
-more :: http://www.cyberciti.biz/faq/how-to-use-chmod-and-chown-command/
+more :: http://www.cyberciti.biz/faq/how-to-use-chmod-and-chown-command/ </br>
 access to log file
 chmod -R 777 /elasticsearch
 
