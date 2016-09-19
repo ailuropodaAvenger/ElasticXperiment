@@ -45,16 +45,14 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)</br>
 
    <h5> Configuring Environment Variables </h5>
-    
-    <ul>
-      <li>Setup JAVA_HOME Variable </li>
-      export JAVA_HOME=/opt/jdk1.8.0_101
-      <li>Setup JRE_HOME Variable</li>
-      export JRE_HOME=/opt/jdk1.8.0_101/jre
-      <li>Setup PATH Variable</li>
-      export PATH=$PATH:/opt/jdk1.8.0_101/bin:/opt/jdk1.8.0_101/jre/bin
-    </ul>
+    Setup JAVA_HOME Variable
+    export JAVA_HOME=/opt/jdk1.8.0_101
 
+    Setup JRE_HOME Variable
+    export JRE_HOME=/opt/jdk1.8.0_101/jre
+
+    Setup PATH Variable
+    export PATH=$PATH:/opt/jdk1.8.0_101/bin:/opt/jdk1.8.0_101/jre/bin
   </p>
 
 <h4> Tomcat 7 server setup & place war file </h4>
