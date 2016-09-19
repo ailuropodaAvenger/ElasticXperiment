@@ -64,13 +64,13 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     tar xzf apache-tomcat-7.0.70.tar.gz
     mv apache-tomcat-7.0.70 /usr/local/tomcat7
     
-  <h5> Start tomcat 7 </h5>
-    cd /usr/local/tomcat7
-    ./bin/startup.sh
-
- <h5> Check on browser </h5>
-   ip_adress:8080
- <h5> Stop tomcat </h5>
-  ./bin/shutdown.sh
+      <h5> Start tomcat 7 </h5>
+        cd /usr/local/tomcat7
+        ./bin/startup.sh
+        
+     <h5> Check on browser </h5>
+       ip_adress:8080
+     <h5> Stop tomcat </h5>
+      ./bin/shutdown.sh
 
   </p>
