@@ -53,7 +53,7 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
       export JRE_HOME=/opt/jdk1.8.0_101/jre
       <li>Setup PATH Variable</li>
       export PATH=$PATH:/opt/jdk1.8.0_101/bin:/opt/jdk1.8.0_101/jre/bin
-
+    </ul>
 
   </p>
 
