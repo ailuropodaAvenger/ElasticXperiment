@@ -135,10 +135,10 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
 }'
 
 
-change ownership of elastic log file
-cd /var/log
-ls -l
-chown -R root:root elasticsearch/
+change ownership of elastic log file </br>
+cd /var/log </br>
+ls -l  </br>
+chown -R root:root elasticsearch/  </br>
 ls -l elasticsearch/
 
 more :: http://www.cyberciti.biz/faq/how-to-use-chmod-and-chown-command/ </br>
