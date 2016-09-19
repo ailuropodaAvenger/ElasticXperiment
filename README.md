@@ -11,10 +11,10 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     <h5> For 64 bit</h5>
     cd /opt/ </br>
     wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz" </br>
-    tar xzf jdk-8u101-linux-x64.tar.gz </br>
+    tar xzf jdk-8u101-linux-x64.tar.gz 
     
     cd /opt/jdk1.8.0_101/ </br>
-    alternatives --install /usr/bin/java java /opt/jdk1.8.0_101/bin/java 2 </br>
+    alternatives --install /usr/bin/java java /opt/jdk1.8.0_101/bin/java 2 
     alternatives --config java </br>
 
     There are 3 programs which provide 'java'. <br>
@@ -28,19 +28,31 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     </br>
     Enter to keep the current selection[+], or type selection number: 4 </br>
     
-    At this point JAVA 8 has been successfully installed on your system, also recommend to setup javac and jar commands path using alternatives</br>
-    alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_101/bin/jar 2 </br>
-    alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_101/bin/javac 2 </br>
-    alternatives --set jar /opt/jdk1.8.0_101/bin/jar </br>
-    alternatives --set javac /opt/jdk1.8.0_101/bin/javac </br>
+    At this point JAVA 8 has been successfully installed on your system, 
+    also recommend to setup javac and jar commands path using alternatives
     
-    Check the installed Java version on your system using following command.</br>
+    alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_101/bin/jar 2
+    alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_101/bin/javac 2
+    alternatives --set jar /opt/jdk1.8.0_101/bin/jar
+    alternatives --set javac /opt/jdk1.8.0_101/bin/javac
+    
+    Check the installed Java version on your system using following command.
 
     root@tecadmin ~# java -version </br>
 
     java version "1.8.0_101"
     Java(TM) SE Runtime Environment (build 1.8.0_101-b13)
     Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)</br>
+
+   <h5> Configuring Environment Variables </h5>
+    
+    <ul>
+      <li>Setup JAVA_HOME Variable </li>
+      export JAVA_HOME=/opt/jdk1.8.0_101
+      <li>Setup JRE_HOME Variable</li>
+      export JRE_HOME=/opt/jdk1.8.0_101/jre
+      <li>Setup PATH Variable</li>
+      export PATH=$PATH:/opt/jdk1.8.0_101/bin:/opt/jdk1.8.0_101/jre/bin
 
 
   </p>
