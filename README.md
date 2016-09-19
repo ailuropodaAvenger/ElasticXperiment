@@ -91,7 +91,7 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
   
   Configuration:
   
-  curl -XPUT  'http://localhost:9200/thirdbell/?pretty=1' -d '{
+  curl -XPUT  'http://localhost:9200/experiment/?pretty=1' -d '{
   "settings": {
     "index" : {
             "number_of_shards" : 10,
@@ -133,4 +133,15 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     }
   }
 }'
+
+
+change ownership of elastic log file
+cd /var/log
+ls -l
+chown -R root:root elasticsearch/
+ls -l elasticsearch/
+
+more :: http://www.cyberciti.biz/faq/how-to-use-chmod-and-chown-command/
+access to log file
+chmod -R 777 /elasticsearch
 
