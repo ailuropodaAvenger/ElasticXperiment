@@ -21,8 +21,8 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
 
     Selection    Command</br>
     -----------------------------------------------
-      *  1           /opt/jdk1.7.0_71/bin/java
-      + 2           /opt/jdk1.8.0_45/bin/java
+    *  1           /opt/jdk1.7.0_71/bin/java
+    +  2           /opt/jdk1.8.0_45/bin/java
        3           /opt/jdk1.8.0_91/bin/java
        4           /opt/jdk1.8.0_101/bin/java
     </br>
@@ -45,6 +45,8 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     Java HotSpot(TM) 64-Bit Server VM (build 25.101-b13, mixed mode)</br>
 
    <h5> Configuring Environment Variables </h5>
+    
+
     Setup JAVA_HOME Variable
     export JAVA_HOME=/opt/jdk1.8.0_101
 
@@ -56,3 +58,19 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
   </p>
 
 <h4> Tomcat 7 server setup & place war file </h4>
+  <p>
+    cd /tmp
+    wget http://www.us.apache.org/dist/tomcat/tomcat-7/v7.0.70/bin/apache-tomcat-7.0.70.tar.gz
+    tar xzf apache-tomcat-7.0.70.tar.gz
+    mv apache-tomcat-7.0.70 /usr/local/tomcat7
+    
+  <h5> Start tomcat 7 </h5>
+    cd /usr/local/tomcat7
+    ./bin/startup.sh
+
+ <h5> Check on browser </h5>
+   ip_adress:8080
+ <h5> Stop tomcat </h5>
+  ./bin/shutdown.sh
+
+  </p>
