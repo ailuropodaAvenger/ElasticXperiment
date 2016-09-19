@@ -64,13 +64,73 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     tar xzf apache-tomcat-7.0.70.tar.gz
     mv apache-tomcat-7.0.70 /usr/local/tomcat7
     
-      <h5> Start tomcat 7 </h5>
-        cd /usr/local/tomcat7
-        ./bin/startup.sh
-        
-     <h5> Check on browser </h5>
-       ip_adress:8080
-     <h5> Stop tomcat </h5>
-      ./bin/shutdown.sh
+    <h5> Start tomcat 7 </h5>
+      cd /usr/local/tomcat7
+      ./bin/startup.sh
+   <h5> Check on browser </h5>
+     ip_adress:8080
+   <h5> Stop tomcat </h5>
+    ./bin/shutdown.sh
 
   </p>
+<h3> install elastic service </h3>
+  Elasticsearch 2.1.1:
+  
+  wget https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/rpm/elasticsearch/2.1.1/elasticsearch-2.1.1.rpm
+  
+  sudo yum install elasticsearch-2.1.1.rpm
+  
+  Activate Elasticsearch as a service
+
+  sudo chkconfig --add elasticsearch
+  sudo chkconfig elasticsearch on
+  
+  Start Elasticsearch
+  
+  sudo service elasticsearch start
+  
+  Configuration:
+  
+  curl -XPUT  'http://localhost:9200/thirdbell/?pretty=1' -d '{
+  "settings": {
+    "index" : {
+            "number_of_shards" : 10,
+            "number_of_replicas" : 1
+        },
+    "analysis": {
+      "filter": {
+        "nGram_filter": {
+          "type": "nGram",
+          "min_gram": 2,
+          "max_gram": 20,
+          "token_chars": [
+            "letter",
+            "digit",
+            "punctuation",
+            "symbol"
+          ]
+        }
+      },
+      "analyzer": {
+        "nGram_analyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "asciifolding",
+            "nGram_filter"
+          ]
+        },
+        "whitespace_analyzer": {
+          "type": "custom",
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    }
+  }
+}'
+
