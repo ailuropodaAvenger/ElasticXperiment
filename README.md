@@ -73,6 +73,50 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
     ./bin/shutdown.sh
 
   </p>
+  <h3> run as service </h3>
+    cd /etc/init.d  
+    vi tomcat  
+  
+  <h5> script </h5>
+  #!/bin/bash  
+  # description: Tomcat Start Stop Restart  
+  # processname: tomcat  
+  # chkconfig: 234 20 80  
+  JAVA_HOME=/opt/jdk1.8.0_101
+  export JAVA_HOME  
+  PATH=$JAVA_HOME/bin:$PATH  
+  export PATH  
+  CATALINA_HOME=/usr/local/tomcat7
+    
+  case $1 in  
+  start)  
+  sh $CATALINA_HOME/bin/startup.sh  
+  ;;   
+  stop)     
+  sh $CATALINA_HOME/bin/shutdown.sh  
+  ;;   
+  restart)  
+  sh $CATALINA_HOME/bin/shutdown.sh  
+  sh $CATALINA_HOME/bin/startup.sh  
+  ;;   
+  esac      
+  exit 0  
+  
+  press Esc key
+  write :wq!
+  
+ chmod 755 tomcat  
+
+  chkconfig --add tomcat  
+  chkconfig --level 234 tomcat on  
+
+Verify it:
+chkconfig --list tomcat  
+tomcat          0:off   1:off   2:on    3:on    4:on    5:off   6:off  
+
+Start Tomcat:
+service tomcat start  
+  
 <h3> install elastic service </h3>
   Elasticsearch 2.1.1:
   
