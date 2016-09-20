@@ -91,7 +91,15 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
   
   Configuration:
   
-  curl -XPUT  'http://localhost:9200/experiment/?pretty=1' -d '{
+  <h3> Delete index -- name : thirdbell </h3>
+  curl -XDELETE "http://localhost:9200/thirdbell/?pretty=1"
+  
+  <h5> string token checker </h5>
+curl 'localhost:9200/thirdbell/_analyze?pretty=1&analyzer=nGram_analyzer' -d 'mossaroff'
+http://localhost:9200/thirdbell/_analyze?analyzer=nGram_analyzer&text=kareem
+
+  
+  curl -XPUT  'http://localhost:9200/thirdbell/?pretty=1' -d '{
   "settings": {
     "index" : {
             "number_of_shards" : 10,
@@ -101,7 +109,7 @@ cd ssh root@192.168.122.233 //replace the ip adress wd own server ip adress
       "filter": {
         "nGram_filter": {
           "type": "nGram",
-          "min_gram": 2,
+          "min_gram": 3,
           "max_gram": 20,
           "token_chars": [
             "letter",
