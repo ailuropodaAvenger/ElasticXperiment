@@ -1,4 +1,5 @@
-
+Indexing single video :
+PUT /videos/video/1?pretty
 ```json
 
 {
@@ -49,52 +50,15 @@
             }
  }
 
-{
-  "id": 4,
-  "title": "Prem o Protishodh",
-  "description": "Mosharraf Karim & Tisha Natok Prem o Protishodh | প্রেম ও প্রতিশোধ. [HD]Exclusively brought to you by Mosharraf Karim HD.",
-  "duration": "00:43:25",
-  "link": "https://www.youtube.com/watch?v=ZwTSwpwB0e8",
-  "categories":{"id": 1,"name": "Teleflim"},
-  "role": {
-    "Production": [{"id": 1,"name": "NTV","logo": ""}],
-    "Actor": [
-              {"id": 5,"name": "Mosharraf Karim","image": "","gender": "male"},
-              {"id": 4,"name": "Tisha","image": "","gender": "female"}
-              ]
-            }
-}
-
-{
-  "id": 5,
-  "title": "Tomar Amar",
-  "description": ".",
-  "duration": "00:4:11",
-  "link": "https://www.youtube.com/watch?v=VdTSv6u6iP0",
-  "categories":{"id": 2,"name": "Music"},
-  "role": {
-    "Production": [{"id": 1,"name": "NTV","logo": ""}],
-    "Actor": [
-              {"id": 1,"name": "Tahsan","image": "","gender": "male"},
-              {"id": 2,"name": "Mithila","image": "","gender": "female"}
-            ]
-          }
-}
-
-{
-  "id": 6,
-  "title": "Sporsher Baire Tumi",
-  "description": "",
-  "duration": "00:03:39",
-  "link": "https://www.youtube.com/watch?v=Vw1qLsdIVtw",
-  "categories":{"id": 2,"name": "Music"},
-  "role": {
-    "Production": [{"id": 1,"name": "NTV","logo": ""}],
-    "Actor": [
-              {"id": 1,"name": "Tahsan","image": "","gender": "male"},
-              {"id": 6,"name": "Elita","image": "","gender": "female"}
-            ]
-         }
-}
+Indexing with bulk API:
+must put new line/enter after 1st line
+if got json parse error... sense auto indent
+POST /videos/video/_bulk?pretty
+{"index":{"_id":"4"}}
+{"id":4,"title":"Prem o Protishodh","description":"Mosharraf Karim & Tisha Natok Prem o Protishodh | প্রেম ও প্রতিশোধ. [HD]Exclusively brought to you by Mosharraf Karim HD.","duration":"00:43:25","link":"https://www.youtube.com/watch?v=ZwTSwpwB0e8","categories":{"id":1,"name":"Teleflim"},"role":{"Production":[{"id":1,"name":"NTV","logo":""}],"Actor":[{"id":5,"name":"Mosharraf Karim","image":"","gender":"male"},{"id":4,"name":"Tisha","image":"","gender":"female"}]}}
+{"index":{"_id":"5"}}
+{"id":5,"title":"Tomar Amar","description":".","duration":"00:4:11","link":"https://www.youtube.com/watch?v=VdTSv6u6iP0","categories":{"id":2,"name":"Music"},"role":{"Production":[{"id":1,"name":"NTV","logo":""}],"Actor":[{"id":1,"name":"Tahsan","image":"","gender":"male"},{"id":2,"name":"Mithila","image":"","gender":"female"}]}}
+{"index":{"_id":"6"}}
+{"id":6,"title":"Sporsher Baire Tumi","description":"","duration":"00:03:39","link":"https://www.youtube.com/watch?v=Vw1qLsdIVtw","categories":{"id":2,"name":"Music"},"role":{"Production":[{"id":1,"name":"NTV","logo":""}],"Actor":[{"id":1,"name":"Tahsan","image":"","gender":"male"},{"id":6,"name":"Elita","image":"","gender":"female"}]}}
 
 ```
