@@ -1,14 +1,41 @@
-Tutorials :
+<h3> Elastic </h3>
+Elasticsearch is an open source, distributed, RESTful search engine built on top of the Apache Lucene library.When data is imported, it immediately becomes available for searching. Elasticsearch is schema-free, stores data in JSON documents, and can automatically detect the data structure and type. It has many client libraries for almost any programming language.
 
+Elasticsearch is a better choice for applications that require not only text search but also complex time series search and aggregations.
+
+<h5>Installation</h5>
+Elasticsearch requires at least Java 8.It is recommended that to use the Oracle JDK version 1.8.0_73.
+check Java version first by running (and then install/upgrade accordingly if needed):
+```{r, engine='bash', count_lines}
+    java -version
+    echo $JAVA_HOME
+```
+<h6>Install Java 8 </h6>
+ubuntu :  https://www.unixmen.com/installing-java-jrejdk-ubuntu-16-04/
+
+windows :  http://www.herongyang.com/JVM/JDK-180-Windows-Download-Installation.html.html
+
+<h6> Install Elasticsearch </h6>
+The best way to start from Elastic documentation
+
+https://www.elastic.co/guide/en/elasticsearch/reference/5.0/install-elasticsearch.html
+
+<h5> Let's start with example </h5>
+Start with installing Sense, a Chrome plugin for Elasticsearch. It offers autocompletion, code highlighting and formatting and can help you with exploring Elasticsearch. 
+
+https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig
+
+<h6> Indexing some video files </h6>
+
+
+<h5>Tutorial</h5>
 http://joelabrahamsson.com/elasticsearch-101/
+
+https://dzone.com/articles/23-useful-elasticsearch-example-queries
 
 http://opensourceconnections.com/blog/2015/09/18/the-simple-power-of-elasticsearch-analyzers/
 
-<h3> Elastic </h3>
 
-
-
-https://dzone.com/articles/23-useful-elasticsearch-example-queries
 
 get search data :
 
