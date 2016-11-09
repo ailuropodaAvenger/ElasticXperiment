@@ -1,7 +1,83 @@
-Indexing single video :
-PUT /videos/video/1?pretty
-```json
+Tutorials :
 
+http://joelabrahamsson.com/elasticsearch-101/
+
+http://opensourceconnections.com/blog/2015/09/18/the-simple-power-of-elasticsearch-analyzers/
+
+<h3> Elastic </h3>
+
+
+
+https://dzone.com/articles/23-useful-elasticsearch-example-queries
+
+get search data :
+
+POST /_search - Search across all indexes and all types.
+
+POST /videos/_search - Search across all types in the videos index.
+
+POST /videos/video/_search - Search explicitly for documents of type video
+
+
+In order to make a more useful search request we can use ElasticSearch's query DSL.
+Let's try a search for the word "Tumi" which is present in the title of one of our videos
+```json
+POST /videos/video/_search 
+{
+    "query": {
+        "query_string": {
+            "query": "tumi"
+        }
+    }
+}
+```
+
+Nested Query:
+Find "music" category videos of actor "Tahsan" & "Mithila" :
+
+```json
+POST /videos/video/_search 
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "categories.name": "Music" }},
+        { "match": { "role.Actor.name":  "Tahsan" }},
+        { "match": { "role.Actor.name":  "Mithila" }} 
+      ]
+    }
+  }
+}
+```
+Fuzzy query:
+The fuzzy query generates all possible matching terms that are within the maximum edit distance specified in fuzziness
+
+```json
+POST /videos/video/_search 
+{
+    "query": {
+        "fuzzy" : {
+            "title" : {
+                "value" :         "tomr",
+                    "boost" :         1.0,
+                    "fuzziness" :     2,
+                    "prefix_length" : 1
+            }
+        }
+    }
+}
+```
+ *prefix_length - The number of initial characters which will not be “fuzzified”.
+return values :
+"title": "Sporsher Baire Tumi"
+"title": "Tomar Amar"
+"title": "Tomay Vebe Lekha"
+
+
+Indexing single video :
+
+```json
+PUT /videos/video/1?pretty
 {
   "id": 1,
   "title": "Mr & Mrs",
@@ -18,6 +94,7 @@ PUT /videos/video/1?pretty
             }
   }
 
+PUT /videos/video/2?pretty
 {
   "id": 2,
   "title": "Rupkotha Ekhon Ar Hoy Na",
@@ -34,6 +111,7 @@ PUT /videos/video/1?pretty
             }
 }
 
+PUT /videos/video/3?pretty
 {
   "id": 3,
   "title": "Tomay Vebe Lekha",
