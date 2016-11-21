@@ -1,21 +1,32 @@
-<h3> Elastic </h3>
 Elasticsearch is an open source, distributed, RESTful search engine built on top of the Apache Lucene library.When data is imported, it immediately becomes available for searching. Elasticsearch is schema-free, stores data in JSON documents, and can automatically detect the data structure and type. It has many client libraries for almost any programming language.
 
-Elasticsearch is a better choice for applications that require not only text search but also complex time series search and aggregations.
+Elasticsearch is a better choice for applications that require not only text search but also complex time series search and aggregations.Elasticsearch is a bit easier to get started – a single download and a single command to get everything started. 
 
-<h5>Installation</h5>
+
+<h4>Who use Elastic</h4>
+Netflix’s use  Elasticsearch to store, index, and search documents
+
+Stack Overflow uses Elasticsearch as a means to support full-text search capabilities
+
+LinkedIn uses Elasticsearch, Logstash, and Kibana stack to monitor performance and security.
+
+Medium is used it to debug production issues. The company also uses the ELK stack to detect DynamoDB hotspots.
+
+It seems like Elasticsearch is everywhere. Netflix, Facebook, Microsoft, Adobe, Github, StackExchange, Ebay, the new york times , soundcloud, the guardian and the list goes on.
+
+<h4>Installation</h4>
 Elasticsearch requires at least Java 8.It is recommended that to use the Oracle JDK version 1.8.0_73.
 check Java version first by running (and then install/upgrade accordingly if needed):
 ```{r, engine='bash', count_lines}
     java -version
     echo $JAVA_HOME
 ```
-<h6>Install Java 8 </h6>
+<h5>Install Java 8 </h5>
 ubuntu :  https://www.unixmen.com/installing-java-jrejdk-ubuntu-16-04/
 
 windows :  http://www.herongyang.com/JVM/JDK-180-Windows-Download-Installation.html.html
 
-<h6> Install Elasticsearch </h6>
+<h5> Install Elasticsearch </h5>
 The best way to start from Elastic documentation
 
 https://www.elastic.co/guide/en/elasticsearch/reference/5.0/install-elasticsearch.html
@@ -45,7 +56,8 @@ PUT /videos/video/1?pretty
               ]
             }
   }
-
+```
+```json
 PUT /videos/video/2?pretty
 {
   "id": 2,
@@ -62,7 +74,8 @@ PUT /videos/video/2?pretty
               ]
             }
 }
-
+```
+```json
 PUT /videos/video/3?pretty
 {
   "id": 3,
@@ -82,7 +95,8 @@ PUT /videos/video/3?pretty
 ```
 <h6>Indexing with bulk API </h6>
 must put new line/enter after 1st line
-if got json parse error... sense auto indent
+
+if got json parse error... change Sense settings -> sense auto indent
 ```json
 POST /videos/video/_bulk?pretty
 {"index":{"_id":"4"}}
@@ -94,7 +108,7 @@ POST /videos/video/_bulk?pretty
 
 ```
 
-<h5>get search data </h5>
+<h5>Get search data </h5>
 Search across all indexes and all types.
 
 POST /_search 
@@ -121,7 +135,7 @@ POST /videos/video/_search
 }
 ```
 
-Nested Query:
+<h6>Nested Query</h6>
 Find "music" category videos of actor "Tahsan" & "Mithila" :
 
 ```json
@@ -138,7 +152,7 @@ POST /videos/video/_search
   }
 }
 ```
-Fuzzy query:
+<h6>Fuzzy query</h6>
 The fuzzy query generates all possible matching terms that are within the maximum edit distance specified in fuzziness
 
 ```json
@@ -167,4 +181,7 @@ http://joelabrahamsson.com/elasticsearch-101/
 
 https://dzone.com/articles/23-useful-elasticsearch-example-queries
 
+<h6>Advance tutorial</h6>
 http://opensourceconnections.com/blog/2015/09/18/the-simple-power-of-elasticsearch-analyzers/
+
+
